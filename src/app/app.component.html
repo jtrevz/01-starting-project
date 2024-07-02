@@ -12,8 +12,14 @@
     }
   </ul>
   @if (selectedUser){
-  <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name"></app-tasks>
+  <app-tasks
+    [userId]="selectedUser.id"
+    [name]="selectedUser.name"
+    (openForm)="onOpenForm($event)"
+  ></app-tasks>
   } @else {
   <p id="fallback">Select a user to see their tasks</p>
+  } @if (openedForm){
+  <app-form></app-form>
   }
 </main>
